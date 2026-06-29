@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inkwell - Handwritten Text Recognition</title>
+
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-circle">
+                ✒
+            </div>
+
+            <div>
+
+                <h2>Inkwell</h2>
+
+                <p>Handwriting → text, instantly</p>
+
+            </div>
+
+        </div>
+
+        <a href="#">Docs</a>
+
+    </header>
+
+
+    <section class="hero">
+
+        <p class="subtitle">
+            HANDWRITTEN TEXT RECOGNITION
+        </p>
+
+        <h1>
+            Read any
+            <span>handwriting</span>
+            like it was typed.
+        </h1>
+
+        <p class="description">
+
+            Drop a photo of a note, journal page, or letter.
+            We'll transcribe it into clean, copyable text —
+            punctuation, line breaks, and all.
+
+        </p>
+
+    </section>
+
+
+    <section class="workspace">
+
+        <div class="card">
+
+            <h2>Your Handwriting</h2>
+
+            <div class="upload-box">
+
+                <input type="file"
+                    id="imageInput"
+                    accept="image/*">
+
+                <img id="preview">
+
+                <div class="upload-text">
+
+                    <h3>Drop an image, or click to browse</h3>
+
+                    <p>PNG, JPG, JPEG • up to 8 MB</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h2>Transcription</h2>
+
+            <textarea
+                id="output"
+                placeholder="The transcription will appear here."></textarea>
+
+            <div class="buttons">
+
+                <button class="clear-btn">
+                    Clear
+                </button>
+
+                <button class="transcribe-btn">
+                    Transcribe
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                Aa
+            </div>
+
+            <h3>Cursive & Print</h3>
+
+            <p>
+
+                Trained on countless handwriting styles,
+                from looping cursive to hurried scrawl.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                ≣
+            </div>
+
+            <h3>Layout Aware</h3>
+
+            <p>
+
+                Preserves line breaks and punctuation so
+                the result reads exactly like the original.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔒
+            </div>
+
+            <h3>Private by Default</h3>
+
+            <p>
+
+                Images are sent only for transcription.
+                Nothing is stored permanently.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 Inkwell</p>
+
+        <p>Crafted with ink & pixels</p>
+
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
