@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+processed.png
+1000202258.jpg
+*.pyc
