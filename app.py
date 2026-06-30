@@ -37,6 +37,7 @@ print("AI Model Loaded Successfully!")
 print("Running on:", device)
 print("===================================")
 
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -90,11 +91,35 @@ def recognize():
         thresh
     )
 
-    # OCR
-    text = pytesseract.image_to_string(
+    # ------------------------------------
+    # TrOCR Inference
+    # ------------------------------------
+
+    # Convert grayscale image to RGB
+    rgb = cv2.cvtColor(
         thresh,
-        config="--oem 3 --psm 8"
+        cv2.COLOR_GRAY2RGB
     )
+
+    # Convert to PIL Image
+    pil_image = Image.fromarray(rgb)
+
+    # Prepare image
+    pixel_values = processor(
+        images=pil_image,
+        return_tensors="pt"
+    ).pixel_values
+
+    pixel_values = pixel_values.to(device)
+
+    # Run model
+    generated_ids = model.generate(pixel_values)
+
+    # Decode output
+    text = processor.batch_decode(
+        generated_ids,
+        skip_special_tokens=True
+    )[0]
 
     print("OCR OUTPUT:", repr(text))
 
